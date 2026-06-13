@@ -190,25 +190,24 @@ const ALL_REGIONS = [
   { region: 'Somalia',       lat:  5.2, lng:  46.2 },
   { region: 'Iran',       lat: -11.6,lng:  43.3 },
 ];;
-
 const TYPE_REGION_BASE: Record<ContentType, Record<string, number>> = {
-  food:          { 'Saudi Arabia':88,'UAE':82,'Egypt':78,'Morocco':68,'Lebanon':62,'Turkey':58,'UK':44,'USA':40,'France':42,'Indonesia':38 },
-  travel:        { 'USA':84,'UK':80,'Germany':76,'France':74,'Australia':72,'Canada':66,'UAE':62,'India':50,'Brazil':46,'Spain':44 },
-  education:     { 'India':86,'Pakistan':78,'Egypt':74,'Saudi Arabia':68,'USA':62,'Nigeria':58,'UK':52,'Indonesia':48,'Morocco':44,'Malaysia':40 },
-  recruitment:   { 'India':88,'Egypt':82,'Saudi Arabia':76,'UAE':72,'USA':62,'UK':55,'Pakistan':50,'Jordan':46,'Morocco':42,'Nigeria':38 },
-  startup:       { 'USA':90,'UK':84,'Germany':78,'UAE':72,'India':65,'Canada':60,'France':56,'Australia':50,'Jordan':42,'Saudi Arabia':38 },
-  entertainment: { 'Saudi Arabia':86,'Egypt':82,'UAE':78,'Morocco':72,'USA':66,'Nigeria':60,'UK':55,'Indonesia':52,'Turkey':48,'Brazil':45 },
-  healthcare:    { 'USA':86,'UK':80,'Germany':74,'Australia':68,'Canada':64,'UAE':58,'Saudi Arabia':52,'India':48,'France':46,'Egypt':40 },
-  fashion:       { 'UAE':88,'Saudi Arabia':82,'Egypt':76,'France':74,'UK':68,'USA':65,'Morocco':60,'Turkey':52,'Lebanon':48,'Germany':42 },
-  tech:          { 'USA':92,'India':84,'Germany':78,'UK':75,'Canada':70,'UAE':66,'France':58,'Australia':55,'Nigeria':45,'Brazil':42 },
-  finance:       { 'USA':90,'UK':86,'Germany':80,'UAE':76,'Saudi Arabia':70,'France':62,'Canada':58,'Australia':55,'Lebanon':48,'Egypt':38 },
-  general:       { 'USA':70,'UK':65,'Lebanon':62,'UAE':58,'Saudi Arabia':55,'Germany':52,'Egypt':48,'Nigeria':44,'Morocco':40,'France':38 },
+  food:          { 'Saudi Arabia':88,'UAE':82,'Egypt':78,'Morocco':68,'Lebanon':62,'Jordan':58,'Kuwait':54,'Tunisia':50,'Algeria':46,'Oman':42 },
+  travel:        { 'UAE':88,'Saudi Arabia':82,'Egypt':76,'Jordan':72,'Morocco':68,'Lebanon':62,'Bahrain':58,'Kuwait':54,'Oman':50,'Tunisia':44 },
+  education:     { 'Egypt':86,'Saudi Arabia':82,'Morocco':78,'Jordan':74,'UAE':70,'Lebanon':66,'Algeria':60,'Tunisia':56,'Iraq':50,'Libya':44 },
+  recruitment:   { 'Egypt':88,'Saudi Arabia':82,'UAE':78,'Jordan':74,'Morocco':68,'Lebanon':62,'Kuwait':56,'Bahrain':50,'Oman':46,'Tunisia':40 },
+  startup:       { 'UAE':90,'Saudi Arabia':84,'Jordan':78,'Lebanon':72,'Egypt':66,'Kuwait':60,'Bahrain':56,'Morocco':50,'Oman':44,'Iraq':38 },
+  entertainment: { 'Saudi Arabia':88,'Egypt':84,'UAE':80,'Morocco':74,'Jordan':68,'Lebanon':64,'Kuwait':58,'Tunisia':52,'Algeria':48,'Iraq':44 },
+  healthcare:    { 'UAE':86,'Saudi Arabia':82,'Egypt':76,'Jordan':70,'Lebanon':66,'Kuwait':60,'Bahrain':54,'Oman':50,'Morocco':44,'Tunisia':38 },
+  fashion:       { 'UAE':90,'Saudi Arabia':84,'Lebanon':80,'Egypt':74,'Morocco':68,'Jordan':62,'Kuwait':58,'Bahrain':52,'Tunisia':46,'Algeria':40 },
+  tech:          { 'UAE':88,'Saudi Arabia':82,'Egypt':78,'Jordan':74,'Lebanon':68,'Kuwait':62,'Bahrain':56,'Morocco':50,'Oman':44,'Iraq':38 },
+  finance:       { 'UAE':90,'Saudi Arabia':86,'Kuwait':80,'Bahrain':76,'Lebanon':70,'Egypt':64,'Jordan':58,'Oman':54,'Morocco':48,'Algeria':40 },
+  general:       { 'Saudi Arabia':82,'UAE':78,'Egypt':74,'Morocco':68,'Jordan':64,'Lebanon':60,'Kuwait':54,'Tunisia':48,'Algeria':42,'Oman':38 },
 };
 
 const GOAL_GEO_MULT: Record<Goal, Partial<Record<string, number>>> = {
-  viewers:    { 'Saudi Arabia':1.1,'Egypt':1.1,'UAE':1.05,'Morocco':1.12,'Nigeria':1.1,'Indonesia':1.1,'Turkey':1.05 },
-  sponsors:   { 'USA':1.1,'UK':1.1,'Germany':1.1,'UAE':1.15,'Saudi Arabia':1.05,'France':1.05,'Canada':1.05,'Algeria':1.05 },
-  applicants: { 'India':1.15,'Egypt':1.1,'Pakistan':1.1,'Saudi Arabia':1.05,'Morocco':1.1,'Jordan':1.12,'Nigeria':1.05 },
+  viewers:    { 'Saudi Arabia':1.15,'Egypt':1.12,'UAE':1.10,'Morocco':1.10,'Jordan':1.08,'Lebanon':1.08,'Kuwait':1.05,'Tunisia':1.05,'Algeria':1.05,'Iraq':1.05 },
+  sponsors:   { 'UAE':1.15,'Saudi Arabia':1.12,'Kuwait':1.10,'Bahrain':1.08,'Lebanon':1.08,'Oman':1.05,'Jordan':1.05,'Egypt':1.05,'Morocco':1.05,'Algeria':1.05 },
+  applicants: { 'Egypt':1.15,'Jordan':1.12,'Morocco':1.10,'Lebanon':1.10,'Saudi Arabia':1.08,'UAE':1.08,'Tunisia':1.05,'Algeria':1.05,'Iraq':1.05,'Syria':1.05 },
 };
 
 function buildGeoRegions(type: ContentType, goal: Goal, s: number, hasArabic: boolean): GeoRegion[] {
@@ -378,7 +377,7 @@ const MISSED_REG: GrowthMap = {
   },
   general: {
     viewers:    [{ icon:'🌍',iconBg:'bg-amber-100',title:'MENA Region',reason:'No Arabic content',action:'Add Arabic caption or subtitle',gain:'High Potential' },{ icon:'🌏',iconBg:'bg-amber-100',title:'South & Southeast Asia',reason:'Large English-speaking audience not targeted',action:'Schedule posts for IST and WIB peak times',gain:'Medium Potential' }],
-    sponsors:   [{ icon:'🌎',iconBg:'bg-amber-100',title:'USA',reason:'Largest sponsorship budget market not reached',action:'Frame audience data in USD and US market terms',gain:'High Potential' },{ icon:'🌍',iconBg:'bg-amber-100',title:'GCC',reason:'High per-capita spend, low creator competition',action:'Reach out to UAE and Saudi brand teams directly',gain:'Medium Potential' }],
+    sponsors:   [{ icon:'🌎',iconBg:'bg-amber-100',title:'Algeria',reason:'Largest sponsorship budget market not reached',action:'Frame audience data in USD and US market terms',gain:'High Potential' },{ icon:'🌍',iconBg:'bg-amber-100',title:'GCC',reason:'High per-capita spend, low creator competition',action:'Reach out to UAE and Saudi brand teams directly',gain:'Medium Potential' }],
     applicants: [{ icon:'🌍',iconBg:'bg-amber-100',title:'MENA',reason:'Large candidate pool not reached',action:'Post in Arabic on regional job boards',gain:'High Potential' },{ icon:'🌏',iconBg:'bg-amber-100',title:'South Asia',reason:'India and Pakistan talent pool underused',action:'Post on Naukri.com and LinkedIn South Asia',gain:'Medium Potential' }],
   },
 };
